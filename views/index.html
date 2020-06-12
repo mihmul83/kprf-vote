@@ -43,95 +43,14 @@
 				<div class="card-body">
 					<div>Выберите Ваш регион <span class="text-red">*</span></div>
 					<div class="material-form-field">
-						<input type="text" required name="dropDown" id="field-dropDown"/>
-						<label class="material-form-field-label" for="field-dropDown">Выберите регион</label>
-						<ul class="material-dropdown">
-							<li>Алтайский край</li>
-							<li>Амурская область</li>
-							<li>Архангельская область</li>
-							<li>Астраханская область</li>
-							<li>Белгородская область</li>
-							<li>Брянская область</li>
-							<li>Владимирская область</li>
-							<li>Волгоградская область</li>
-							<li>Вологодская область</li>
-							<li>Воронежская область</li>
-							<li>Еврейская АО</li>
-							<li>Забайкальский край</li>
-							<li>Ивановская область</li>
-							<li>Иркутская область</li>
-							<li>Кабардино-Балкарская Республика</li>
-							<li>Калининградская область</li>
-							<li>Калужская область</li>
-							<li>Камчатский край</li>
-							<li>Карачаево-Черкесская Республика</li>
-							<li>Кемеровская область - Кузбасс</li>
-							<li>Кировская область</li>
-							<li>Костромская область</li>
-							<li>Краснодарский край</li>
-							<li>Красноярский край</li>
-							<li>Курганская область</li>
-							<li>Курская область</li>
-							<li>Ленинградская область</li>
-							<li>Липецкая область</li>
-							<li>Магаданская область</li>
-							<li>Москва</li>
-							<li>Московская область</li>
-							<li>Мурманская область</li>
-							<li>Ненецкий АО</li>
-							<li>Нижегородская область</li>
-							<li>Новгородская область</li>
-							<li>Новосибирская область</li>
-							<li>Омская область</li>
-							<li>Оренбургская область</li>
-							<li>Орловская область</li>
-							<li>Пензенская область</li>
-							<li>Пермский край</li>
-							<li>Приморский край</li>
-							<li>Псковская область</li>
-							<li>Республика Адыгея</li>
-							<li>Республика Алтай</li>
-							<li>Республика Башкортостан</li>
-							<li>Республика Бурятия</li>
-							<li>Республика Дагестан</li>
-							<li>Республика Ингушетия</li>
-							<li>Республика Калмыкия</li>
-							<li>Республика Карелия</li>
-							<li>Республика Коми</li>
-							<li>Республика Крым</li>
-							<li>Республика Марий Эл</li>
-							<li>Республика Мордовия</li>
-							<li>Республика Саха (Якутия)</li>
-							<li>Республика Северная Осетия</li>
-							<li>Республика Татарстан</li>
-							<li>Республика Тыва</li>
-							<li>Республика Хакасия</li>
-							<li>Ростовская область</li>
-							<li>Рязанская область</li>
-							<li>Самарская область</li>
-							<li>Санкт-Петербург</li>
-							<li>Саратовская область</li>
-							<li>Сахалинская область</li>
-							<li>Свердловская область</li>
-							<li>Севастополь</li>
-							<li>Смоленская область</li>
-							<li>Ставропольский край</li>
-							<li>Тамбовская область</li>
-							<li>Тверская область</li>
-							<li>Томская область</li>
-							<li>Тульская область</li>
-							<li>Тюменская область</li>
-							<li>Удмуртская Республика</li>
-							<li>Ульяновская область</li>
-							<li>Хабаровский край</li>
-							<li>Ханты-Мансийский АО — Югра</li>
-							<li>Челябинская область</li>
-							<li>Чеченская Республика</li>
-							<li>Чувашская Республика</li>
-							<li>Чукотский АО</li>
-							<li>Ямало-Ненецкий АО</li>
-							<li>Ярославская область</li>
-						</ul>
+						<input type="hidden" required name="dropDown" id="dropDown"/>
+						<div class="lm-select" id="regions">
+							<div class="lm-select-value"></div>
+							<div class="lm-select-options">
+								<div class="lm-select-list"></div>
+							</div>
+							<div class="lm-select-overflow"></div>
+						</div>						
 					</div>
 				</div>
 			</div>
@@ -142,11 +61,11 @@
 					</div>
 					<div>
 						<div class="md-radio">
-							<input id="q1a1" type="radio" name="q1" checked>
+							<input id="q1a1" type="radio" value="За" name="q1" checked>
 							<label for="q1a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q1a2" type="radio" name="q1">
+							<input id="q1a2" type="radio" value="Против" name="q1">
 							<label for="q1a2">Против</label>
 						</div>
 					</div>				
@@ -157,11 +76,11 @@
 					<div>2. Зафиксировать принадлежность природных недр России её народу, гарантировать всем гражданам страны достойную долю дохода от добычи полезных ископаемых.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q2a1" type="radio" name="q2" checked>
+							<input id="q2a1" type="radio" value="За" name="q2" checked>
 							<label for="q2a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q2a2" type="radio" name="q2">
+							<input id="q2a2" type="radio" value="Против" name="q2">
 							<label for="q2a2">Против</label>
 						</div>
 					</div>					
@@ -172,11 +91,11 @@
 					<div>3. Закрепить в качестве важнейшей гарантии возраст выхода на пенсию: 60 лет – для мужчин, 55 лет – для женщин.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q3a1" type="radio" name="q3" checked>
+							<input id="q3a1" type="radio" value="За" name="q3" checked>
 							<label for="q3a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q3a2" type="radio" name="q3">
+							<input id="q3a2" type="radio" value="Против" name="q3">
 							<label for="q3a2">Против</label>
 						</div>
 					</div>					
@@ -187,11 +106,11 @@
 					<div>4. Сделать обязательной нормой индексацию пенсий, социальных выплат и стипендий на величину индекса роста потребительских цен за предыдущий год.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q4a1" type="radio" name="q4" checked>
+							<input id="q4a1" type="radio" value="За" name="q4" checked>
 							<label for="q4a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q4a2" type="radio" name="q4">
+							<input id="q4a2" type="radio" value="Против" name="q4">
 							<label for="q4a2">Против</label>
 						</div>
 					</div>						
@@ -202,11 +121,11 @@
 					<div>5. Установить, что минимальный размер оплаты труда и пенсионных выплат не может быть ниже прожиточного минимума, который должен гарантировать удовлетворение базовых потребностей человека в жилье, питании, одежде, медицинской помощи, доступе к образованию и ценностям культуры, проезде на общественном транспорте.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q5a1" type="radio" name="q5" checked>
+							<input id="q5a1" type="radio" value="За" name="q5" checked>
 							<label for="q1a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q5a2" type="radio" name="q5">
+							<input id="q5a2" type="radio" value="Против" name="q5">
 							<label for="q5a2">Против</label>
 						</div>
 					</div>						
@@ -217,11 +136,11 @@
 					<div>6. Зафиксировать, что платежи за жилищно-коммунальные услуги не могут превышать 10% от совокупного дохода семьи.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q6a1" type="radio" name="q6" checked>
+							<input id="q6a1" type="radio" value="За" name="q6" checked>
 							<label for="q6a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q6a2" type="radio" name="q6">
+							<input id="q6a2" type="radio" value="Против" name="q6">
 							<label for="q6a2">Против</label>
 						</div>
 					</div>						
@@ -233,11 +152,11 @@
 					</div>
 					<div>
 						<div class="md-radio">
-							<input id="q7a1" type="radio" name="q7" checked>
+							<input id="q7a1" type="radio" value="За" name="q7" checked>
 							<label for="q7a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q7a2" type="radio" name="q7">
+							<input id="q7a2" type="radio" value="Против" name="q7">
 							<label for="q7a2">Против</label>
 						</div>
 					</div>					
@@ -248,11 +167,11 @@
 					<div>8. Наделить Государственную Думу ФС РФ правом решать вопрос о доверии или недоверии правительству России, его отдельным членам, руководителям федеральных органов исполнительной власти.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q8a1" type="radio" name="q8" checked>
+							<input id="q8a1" type="radio" value="За" name="q8" checked>
 							<label for="q8a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q8a2" type="radio" name="q8">
+							<input id="q8a2" type="radio" value="Против" name="q8">
 							<label for="q8a2">Против</label>
 						</div>
 					</div>					
@@ -263,11 +182,11 @@
 					<div>9. Закрепить выборность членов Совета Федерации ФС РФ, губернаторов, мэров городов населением прямым тайным голосованием без каких-либо «фильтров».</div>
 					<div>
 						<div class="md-radio">
-							<input id="q9a1" type="radio" name="q9" checked>
+							<input id="q9a1" type="radio" value="За" name="q9" checked>
 							<label for="q9a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q9a2" type="radio" name="q9">
+							<input id="q9a2" type="radio" value="Против" name="q9">
 							<label for="q9a2">Против</label>
 						</div>
 					</div>					
@@ -278,11 +197,11 @@
 					<div>10. Гарантировать реальную независимость судебной власти, закрепить выборность мировых, районных и городских судей.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q10a1" type="radio" name="q10" checked>
+							<input id="q10a1" type="radio" value="За" name="q10" checked>
 							<label for="q10a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q10a2" type="radio" name="q10">
+							<input id="q10a2" type="radio" value="Против" name="q10">
 							<label for="q10a2">Против</label>
 						</div>
 					</div>					
@@ -293,11 +212,11 @@
 					<div>11. Ввести норму, согласно которой фальсификация итогов голосования считается посягательством на основы конституционного строя и строго карается в соответствии с нормами уголовного права.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q11a1" type="radio" name="q11" checked>
+							<input id="q11a1" type="radio" value="За" name="q11" checked>
 							<label for="q11a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q11a2" type="radio" name="q11">
+							<input id="q11a2" type="radio" value="Против" name="q11">
 							<label for="q11a2">Против</label>
 						</div>
 					</div>					
@@ -308,11 +227,11 @@
 					<div>12. Определить, что важнейшей функцией Банка России должно являться обеспечение экономического роста в стране и повышение благосостояния граждан.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q12a1" type="radio" name="q12" checked>
+							<input id="q12a1" type="radio" value="За" name="q12" checked>
 							<label for="q12a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q12a2" type="radio" name="q12">
+							<input id="q12a2" type="radio" value="Против" name="q12">
 							<label for="q12a2">Против</label>
 						</div>
 					</div>					
@@ -323,11 +242,11 @@
 					<div>13. Закрепить за органами местного самоуправления право на такую долю налоговых доходов, которая гарантирует им возможность исполнения своих полномочий.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q13a1" type="radio" name="q13" checked>
+							<input id="q13a1" type="radio" value="За" name="q13" checked>
 							<label for="q13a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q13a2" type="radio" name="q13">
+							<input id="q13a2" type="radio" value="Против" name="q13">
 							<label for="q13a2">Против</label>
 						</div>
 					</div>					
@@ -338,11 +257,11 @@
 					<div>14. Обеспечить глубокое, системное, целостное реформирование Конституции в интересах народного большинства. В кратчайшие сроки принять закон о Конституционном собрании и приступить к его исполнению.</div>
 					<div>
 						<div class="md-radio">
-							<input id="q14a1" type="radio" name="q14" checked>
+							<input id="q14a1" type="radio" value="За" name="q14" checked>
 							<label for="q14a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q14a2" type="radio" name="q14">
+							<input id="q14a2" type="radio" value="Против" name="q14">
 							<label for="q14a2">Против</label>
 						</div>
 					</div>					
@@ -353,11 +272,11 @@
 					<div>15. Принять новый, отражающий принципы народовластия закон о референдуме в Российской Федерации. Предложения по реформе Основного закона, выработанные Конституционным собранием, утвердить на общенародном референдуме</div>
 					<div>
 						<div class="md-radio">
-							<input id="q15a1" type="radio" name="q15" checked>
+							<input id="q15a1" type="radio" value="За" name="q15" checked>
 							<label for="q15a1">За</label>
 						</div>
 						<div class="md-radio">
-							<input id="q15a2" type="radio" name="q15">
+							<input id="q15a2" type="radio" value="Против" name="q15">
 							<label for="q15a2">Против</label>
 						</div>
 					</div>					
@@ -365,7 +284,10 @@
 			</div>
 			<div class="card">
 				<div class="card-body text-center">				
-					<input  class="button" type="submit" id="submitButton" value="Отправить">
+					<button class="button" type="submit" id="submitButton" >
+						<span class="button-text">Отправить</span>
+						<span class="button-loader"></span>
+					</button>
 				</div>
 			</div>							
 		</form>

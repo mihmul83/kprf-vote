@@ -194,6 +194,10 @@ Expected html:
   transition:0.2s ease-in height, step-end box-shadow 0.2s;
   -moz-transition:0.2s ease-in height, step-end box-shadow 0.2s;
   -webkit-transition:0.2s ease-in height, step-end box-shadow 0.2s;
+
+  &:hover{
+  	 cursor: pointer;
+  }
   
   &.material-dropdown-open{
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
@@ -205,6 +209,7 @@ Expected html:
     user-select:none;
     &:hover{
       background-color: $material-dropdown-hoverBackground;
+      cursor: pointer;
     }
     &.material-dropdown-selected{
       background-color: $material-dropdown-selectedBackground;
@@ -351,4 +356,156 @@ https://codepen.io/ageris/pen/dGbQve
 .disabled{
 	pointer-events:none;
 	opacity:.8;
+}
+
+
+.lm-select {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+	font-size: 15px;
+
+	::-webkit-scrollbar {
+		width: 5px
+	}
+
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 20px rgba(0,0,0,0.3)
+	}
+
+	::-webkit-scrollbar-thumb {
+		-webkit-box-shadow: inset 0 0 50px #2196F3
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		-webkit-box-shadow: inset 0 0 50px #2196F3
+	}
+
+	&-ico{
+		position: absolute;
+		top: 50%;
+		right: 8px;
+		margin-top: -3px;
+		border-width: 6px;
+		border-style: solid;
+		border-color: #3691E1 transparent transparent;
+	}
+
+	&-value {
+		border-bottom: 1px solid #000;
+		padding: 8.5px 15px;
+		padding-left:0;
+		cursor: pointer;
+		z-index: 4;
+	}
+
+}
+
+.lm-select
+.lm-select-active .lm-select-value {
+  z-index: 1;
+}
+.lm-select-options {
+  position: absolute;
+  top: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  left: 0px;
+  width: 100% ;
+  visibility: hidden;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(.9,.9);
+  background: #fff;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,.14);
+  overflow:hidden;
+}
+.lm-select-animating .lm-select-options {
+  visibility: visible;
+}
+.lm-select-active .lm-select-options { 
+  transform: scale(1,1);
+  opacity: 1;
+}
+ 
+.lm-select-list {
+  position: relative;
+  width: 100%;
+  max-height: 266px;
+  overflow: auto;
+}
+
+.lm-select-item {
+  padding: 8.5px 15px;
+  cursor: pointer;
+}
+.lm-select-item:hover{
+   background: #3691E1;
+   color: white;
+}
+.lm-select-item:active{
+  background: #3691E1;
+  color:white;
+  transition: background 0.2s ease;
+}
+.lm-select-item.lm-select-selected{
+  background: #3691E1;
+  color:white;
+}
+
+.lm-select-overflow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+}
+
+.lm-select-active .lm-select-overflow{
+  display: block;
+}
+
+
+.hidden {
+	display: none;
+	pointer-events: none;
+}
+.invisible{
+	visibility: hidden;
+}
+.loading {
+	position:relative;
+
+	& .button-text{
+		visibility: hidden;
+	}
+	& .button-loader{
+		position: absolute;
+		left: 50%;
+		top:50%;
+		margin-left: -1em;
+		margin-top: -1em;
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		border: 3px solid rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		border-top-color: #fff;
+		animation: spin 1s ease-in-out infinite;
+		-webkit-animation: spin 1s ease-in-out infinite;		
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }

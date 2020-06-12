@@ -22,10 +22,10 @@ const sassMiddleware = require('node-sass-middleware');
 app.use(sassMiddleware({
 	src: path.join(__dirname, 'public'),
 	dest: path.join(__dirname, 'public'),
-    indentedSyntax: false, 
-    sourceMap: false,
-    debug: false,
-    outputStyle: 'compressed',
+	indentedSyntax: false, 
+	sourceMap: false,
+	debug: false,
+	outputStyle: 'compressed',
 }));
 
 function removeFrameguard(req, res, next) {
@@ -38,21 +38,44 @@ function setNoCache(req, res, next){
 	next();
 }
 
-app.get('/', removeFrameguard, async(req, res) => {	
-	return res.sendFile(path.join(__dirname,'public/index.html'));
+app.get('/', removeFrameguard, async(req, res) => {
+	try{
+		if(req.cookies&&req.cookies['kprfSiteVoted']){
+			return res.sendFile(path.join(__dirname,'views/voted.html'));
+		}		
+		return res.sendFile(path.join(__dirname,'views/index.html'));
+	} catch(e) {
+		return res.sendFile(path.join(__dirname,'views/error.html'));
+	}	
 });
 
 app.post('/vote', removeFrameguard, async(req, res) => {
-	console.log(req.body)	
-	return res.json({status:'ok'})
+	try{
+		console.log(req.cookies);
+		console.log(req.body);
+		if(req.cookies&&req.cookies['kprfSiteVoted']){
+			return res.json({status:'error', error: 'voted'})
+		}
+
+		let options = {
+			maxAge: 1000 * 60 * 60 * 24 * 365 * 20,
+			httpOnly: true,
+			signed: true
+		}		
+		res.cookie('kprfSiteVoted', 'true')
+		return res.json({status:'ok'})
+	} catch(e) {
+		return res.json({status:'error', error: e})
+	}
+
 });
 
 app.get('/result', removeFrameguard, async(req, res) => {	
-	return res.sendFile(path.join(__dirname,'public/result.html'));
+	return res.sendFile(path.join(__dirname,'views/result.html'));
 });
 
 app.get('*', removeFrameguard, async(req, res) => {	
-	return res.sendFile(path.join(__dirname,'public/error.html'));
+	return res.sendFile(path.join(__dirname,'views/error.html'));
 });
 
 const server = http.createServer(app);
