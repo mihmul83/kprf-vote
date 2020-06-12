@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<form >
+		<form action="/vote" target="_self" method="POST" id="voteForm" name="voteForm">
 			<div class="card">
 				<div class="card-header">
 					<div class="card-header-text">КПРФ предлагает реальные поправки в Основной Закон РФ</div>
@@ -32,6 +32,10 @@
 					<div class="material-form-field">
 						<input type="email" class="form-input" autocomplete="email" name="emailAddress" required="">
 						<label class="material-form-field-label" for="field-text-invalid">Ваш e-mail</label>						
+					</div>
+					<div style="display:none;pointer-events:none;">
+						<input type="text" name="address">
+						<input type="text" name="antispam" value="test">
 					</div>
 				</div>
 			</div>
@@ -131,7 +135,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="card">
 				<div class="card-body">				
 					<div>
@@ -361,8 +364,8 @@
 				</div>
 			</div>
 			<div class="card">
-				<div class="card-body">				
-					
+				<div class="card-body text-center">				
+					<input  class="button" type="submit" id="submitButton" value="Отправить">
 				</div>
 			</div>							
 		</form>

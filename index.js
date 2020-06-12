@@ -4,9 +4,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
-
 const app = express();
-
 mongoose.connect('mongodb://localhost/kprfvote',{
 	useCreateIndex: true,
 	useNewUrlParser: true,
@@ -14,17 +12,17 @@ mongoose.connect('mongodb://localhost/kprfvote',{
 	useUnifiedTopology: true
 });
 
-
-app.use(express.static(path.join(__dirname, 'public'))); 
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(cookieParser());
 app.set('trust proxy', 1);
+
+app.use(express.static(path.join(__dirname, 'public'))); 
 const sassMiddleware = require('node-sass-middleware');
 app.use(sassMiddleware({
 	src: path.join(__dirname, 'public'),
 	dest: path.join(__dirname, 'public'),
-    indentedSyntax: false, // true = .sass and false = .scss
+    indentedSyntax: false, 
     sourceMap: false,
     debug: false,
     outputStyle: 'compressed',
@@ -44,7 +42,8 @@ app.get('/', removeFrameguard, async(req, res) => {
 	return res.sendFile(path.join(__dirname,'public/index.html'));
 });
 
-app.post('/vote', removeFrameguard, async(req, res) => {	
+app.post('/vote', removeFrameguard, async(req, res) => {
+	console.log(req.body)	
 	return res.json({status:'ok'})
 });
 

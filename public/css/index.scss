@@ -74,6 +74,10 @@ body {
 	&-red{
 		color:red;
 	}
+
+	&-center{
+		text-align:center
+	}
 }
 
 $md-radio-checked-color: rgb(51, 122, 183);
@@ -301,4 +305,50 @@ https://codepen.io/ageris/pen/dGbQve
       color: $material-form-field-invalid-foreground;
     }
   }
+}
+
+
+.button {
+  position: relative;
+  display: inline-block;
+  font-family:inherit;
+  font-size:14px;
+  padding: 1em 2em;
+  background-color: rgb(252, 0, 0);
+  color: #fff;
+  text-decoration: none;
+  border:none;
+  outline:none;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.button strong {
+  position: relative;
+  z-index: 9;
+}
+
+.bulle {
+  position: absolute;
+  z-index: 1;
+  background-color: #F3EDD3;
+  border-radius: 100%;
+  transform: scale(0);
+  transition: transform 0.5s linear;
+}
+
+.bulle.animated {
+  animation: bulle 0.65s linear;
+}
+
+@keyframes bulle {
+	100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+.disabled{
+	pointer-events:none;
+	opacity:.8;
 }
