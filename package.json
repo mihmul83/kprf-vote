@@ -1,0 +1,25 @@
+{
+  "name": "kprf-vote",
+  "version": "1.0.0",
+  "description": "Voting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihmul83/kprf-vote.git"
+  },
+  "keywords": [
+    "vote"
+  ],
+  "author": "krumza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihmul83/kprf-vote/issues"
+  },
+  "homepage": "https://github.com/mihmul83/kprf-vote#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
