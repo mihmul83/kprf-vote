@@ -17,10 +17,16 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
-				<div class="card-header-text">Спасибо, что отдали свой голос!</div>
+				<div class="card-header-text">КПРФ предлагает реальные поправки в Основной Закон РФ</div>
 			</div>
-			<div><a href="/result">Посмотреть результаты</a></div>
 		</div>		
 	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io();
+		socket.on('update', function(msg){
+			
+		});
+	</script>
 </body>
 </html>

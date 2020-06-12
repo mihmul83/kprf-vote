@@ -85,7 +85,7 @@ function validateEmail(email) {
 
 var regions = ["Выбрать","Алтайский край", "Амурская область", "Архангельская область", "Астраханская область", "Белгородская область", "Брянская область", "Владимирская область", "Волгоградская область", "Вологодская область", "Воронежская область", "Еврейская АО", "Забайкальский край", "Ивановская область", "Иркутская область", "Кабардино-Балкарская Республика", "Калининградская область", "Калужская область", "Камчатский край", "Карачаево-Черкесская Республика", "Кемеровская область - Кузбасс", "Кировская область", "Костромская область", "Краснодарский край", "Красноярский край", "Курганская область", "Курская область", "Ленинградская область", "Липецкая область", "Магаданская область", "Москва", "Московская область", "Мурманская область", "Ненецкий АО", "Нижегородская область", "Новгородская область", "Новосибирская область", "Омская область", "Оренбургская область", "Орловская область", "Пензенская область", "Пермский край", "Приморский край", "Псковская область", "Республика Адыгея", "Республика Алтай", "Республика Башкортостан", "Республика Бурятия", "Республика Дагестан", "Республика Ингушетия", "Республика Калмыкия", "Республика Карелия", "Республика Коми", "Республика Крым", "Республика Марий Эл", "Республика Мордовия", "Республика Саха (Якутия)", "Республика Северная Осетия", "Республика Татарстан", "Республика Тыва", "Республика Хакасия", "Ростовская область", "Рязанская область", "Самарская область", "Санкт-Петербург", "Саратовская область", "Сахалинская область", "Свердловская область", "Севастополь", "Смоленская область", "Ставропольский край", "Тамбовская область", "Тверская область", "Томская область", "Тульская область", "Тюменская область", "Удмуртская Республика", "Ульяновская область", "Хабаровский край", "Ханты-Мансийский АО — Югра", "Челябинская область", "Чеченская Республика", "Чувашская Республика", "Чукотский АО", "Ямало-Ненецкий АО", "Ярославская область"];
 var onChange = function(data){
-	document.getElementById('dropDown').value = data.value;
+	document.getElementById('region').value = data.value;
 }
 var listElement = document.querySelectorAll('.lm-select-list')[0];
 for(var i=0;i<regions.length;i++){
@@ -96,27 +96,49 @@ var select = lmSelect(document.getElementById('regions'), onChange)
 
 var submitHandler = function(e) {
 	e.preventDefault();
-
-	document.getElementById('submitButton').classList.add('loading');
-	document.getElementById('submitButton').classList.add('disabled');
-
 	var form = document.querySelector('form'),
 	formData = new FormData(form),
 	object = {};
-	formData.forEach((value, key) => {object[key] = value});
-
-	console.log(validateEmail(formData.emailAddress))
-
-	var json = JSON.stringify(object);
-	var xhr = new XMLHttpRequest();
-	xhr.responseType = 'json';
-	xhr.open('POST', '/vote');
-	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-	xhr.send(json);
-	xhr.onload = function() {
-		var responseObj = xhr.response;
-		console.log(responseObj); 
-	};
+	formData.forEach((value, key) => {object[key] = value});	
+	var error = false;
+	document.getElementById('errorsDiv').innerHTML = '';
+	if(!validateEmail(object.email)){
+		error = true;
+		document.getElementById('errorsDiv').innerHTML+= '<div>Укажите вашу электронную почту!</div>'
+	}		
+	object.email = object.email.toLowerCase();	
+	if(!document.getElementById('region').value){
+		error = true;
+		document.getElementById('errorsDiv').innerHTML+= '<div>Укажите ваш регион!</div>'
+	}
+	if(!error) {
+		document.getElementById('submitButton').classList.add('loading');
+		document.getElementById('submitButton').classList.add('disabled');		
+		var json = JSON.stringify(object);
+		var xhr = new XMLHttpRequest();
+		xhr.responseType = 'json';
+		xhr.open('POST', '/vote');
+		xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+		xhr.send(json);
+		xhr.onload = function() {
+			var responseObj = xhr.response;
+			if(responseObj&&responseObj.status){
+				var status = responseObj.status;
+				if(status==='ok'){
+					window.location.reload();
+				} else if(status==='error'){
+					var ems = responseObj.error;
+					if(ems==='spam'){
+						document.getElementById('errorsDiv').innerHTML+= '<div>Спам!</div>'
+					} else if(ems==='miss'){
+						document.getElementById('errorsDiv').innerHTML+= '<div>Заполните все необходимые поля!</div>'
+					} else if(ems==='votedmail'){
+						document.getElementById('errorsDiv').innerHTML+= '<div>Данная электронная почта участвовала в голосовании!</div>'
+					}
+				}
+			}
+		};		
+	}
 }
 
 document.getElementById('voteForm').addEventListener('submit',submitHandler);

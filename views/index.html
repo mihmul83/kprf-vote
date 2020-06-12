@@ -2,7 +2,6 @@
 <html lang="en" class="no-js">
 <head>
 	<meta charset="utf-8">
-	<base href="<%=base%>"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -30,11 +29,11 @@
 				<div class="card-body">
 					<div>Адрес электронной почты <span class="text-red">*</span></div>
 					<div class="material-form-field">
-						<input type="email" class="form-input" autocomplete="email" name="emailAddress" required="">
+						<input type="email" class="form-input" autocomplete="email" name="email" required="">
 						<label class="material-form-field-label" for="field-text-invalid">Ваш e-mail</label>						
 					</div>
 					<div style="display:none;pointer-events:none;">
-						<input type="text" name="address">
+						<input type="text" name="address" value="">
 						<input type="text" name="antispam" value="test">
 					</div>
 				</div>
@@ -43,7 +42,7 @@
 				<div class="card-body">
 					<div>Выберите Ваш регион <span class="text-red">*</span></div>
 					<div class="material-form-field">
-						<input type="hidden" required name="dropDown" id="dropDown"/>
+						<input type="hidden" required name="region" id="region"/>
 						<div class="lm-select" id="regions">
 							<div class="lm-select-value"></div>
 							<div class="lm-select-options">
@@ -283,12 +282,13 @@
 				</div>
 			</div>
 			<div class="card">
-				<div class="card-body text-center">				
+				<div class="text-red" id="errorsDiv"></div>
+				<div class="card-body text-center">								
 					<button class="button" type="submit" id="submitButton" >
 						<span class="button-text">Отправить</span>
 						<span class="button-loader"></span>
 					</button>
-				</div>
+				</div>	
 			</div>							
 		</form>
 	</div>
