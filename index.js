@@ -115,13 +115,43 @@ app.get('*', removeFrameguard, async(req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+	console.log('a user connected');
 });
 
+let queryObj = {
+	"count":[
+	{
+		$count: "total"
+	}    
+	]	
+};
+let voteParams = ['region', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15'];
+for(let i=0;i<voteParams.length;i++){
+	let param = voteParams[i]
+	queryObj[param] = [
+			{"$group": {
+				"_id": { "$toLower": "$"+param },
+				"count": { "$sum": 1 }
+			}},
+			{"$group": {
+				"_id": null,
+				"counts": {
+					"$push": { "k": "$_id", "v": "$count" }
+				}
+			}},
+			{ "$replaceRoot": {
+				"newRoot": { "$arrayToObject": "$counts" }
+			}}
+	]
+}
+
 setTimeout(async function run(){
-  const votes = await Vote.find();
-  io.emit('update', votes);
-  setTimeout(run, 1000);
+	const votes = await Vote.aggregate([
+		{ "$facet": queryObj }
+	]);
+
+	io.emit('update', votes);
+	setTimeout(run, 1000);
 }, 1000);
 
 
