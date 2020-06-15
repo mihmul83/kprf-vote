@@ -109,6 +109,7 @@ var submitHandler = function(e) {
 	object.email = object.email.toLowerCase();	
 	if(!document.getElementById('region').value){
 		error = true;
+		document.getElementById('errorsDiv').classList.add('active')
 		document.getElementById('errorsDiv').innerHTML+= '<div>Укажите ваш регион!</div>'
 	}
 	if(!error) {
@@ -128,13 +129,17 @@ var submitHandler = function(e) {
 					window.location.reload();
 				} else if(status==='error'){
 					var ems = responseObj.error;
+					document.getElementById('errorsDiv').classList.add('active')
 					if(ems==='spam'){
 						document.getElementById('errorsDiv').innerHTML+= '<div>Спам!</div>'
 					} else if(ems==='miss'){
 						document.getElementById('errorsDiv').innerHTML+= '<div>Заполните все необходимые поля!</div>'
 					} else if(ems==='votedmail'){
-						document.getElementById('errorsDiv').innerHTML+= '<div>Данная электронная почта участвовала в голосовании!</div>'
+						document.getElementById('errorsDiv').innerHTML+= '<div>Данная электронная почта участвовала в голосовании!</div>';
+						document.getElementById('submitButton').classList.remove('loading');
+						document.getElementById('submitButton').classList.remove('disabled');						
 					}
+					document.getElementById('errorsDiv').scrollIntoView({ behavior: 'smooth', block: 'end'});
 				}
 			}
 		};		

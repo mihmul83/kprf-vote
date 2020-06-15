@@ -468,6 +468,21 @@ https://codepen.io/ageris/pen/dGbQve
   display: block;
 }
 
+#errorsDiv {
+    background: Red;
+    color: white;
+    padding: 1em;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity:0;
+
+    &.active {
+    	opacity:1
+    }
+}
 
 .hidden {
 	display: none;

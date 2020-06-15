@@ -22,15 +22,6 @@ app.set('trust proxy', 1);
 
 app.use(express.static(path.join(__dirname, 'public'))); 
 
-const sassMiddleware = require('node-sass-middleware');
-app.use(sassMiddleware({
-	src: path.join(__dirname, 'public'),
-	dest: path.join(__dirname, 'public'),
-	indentedSyntax: false, 
-	sourceMap: false,
-	debug: false,
-	outputStyle: 'compressed',
-}));
 
 const voteSchema = new mongoose.Schema({
 	email: String,
@@ -58,11 +49,45 @@ function removeFrameguard(req, res, next) {
 	res.removeHeader('X-Frame-Options');
 	next();
 }
-
 function setNoCache(req, res, next){
 	res.set('Cache-Control','no-cache, no-store, must-revalidate');
 	next();
 }
+let globalVotes = [];
+let queryObj = {
+	"count":[
+	{
+		$count: "total"
+	}    
+	]	
+};
+let voteParams = ['region', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15'];
+for(let i=0;i<voteParams.length;i++){
+	let param = voteParams[i]
+	queryObj[param] = [
+			{"$group": {
+				"_id": { "$toLower": "$"+param },
+				"count": { "$sum": 1 }
+			}},
+			{"$group": {
+				"_id": null,
+				"counts": {
+					"$push": { "k": "$_id", "v": "$count" }
+				}
+			}},
+			{ "$replaceRoot": {
+				"newRoot": { "$arrayToObject": "$counts" }
+			}}
+	]
+}
+async function sendUpdate(){
+	const votes = await Vote.aggregate([
+		{ "$facet": queryObj }
+	]);
+	globalVotes = votes;
+	io.emit('update', votes);
+}
+sendUpdate();
 
 app.get('/', [setNoCache, removeFrameguard], async(req, res) => {
 	try{
@@ -99,7 +124,8 @@ app.post('/vote', removeFrameguard, async(req, res) => {
 			maxAge: 1000 * 60 * 60 * 24 * 365 * 20,
 			httpOnly: true
 		}		
-		res.cookie('kprfSiteVoted', 'true', options)
+		res.cookie('kprfSiteVoted', 'true', options);
+		sendUpdate();
 		return res.json({status:'ok'})
 	} catch(e) {
 		return res.json({status:'error', error: e})
@@ -115,45 +141,8 @@ app.get('*', removeFrameguard, async(req, res) => {
 });
 
 io.on('connection', (socket) => {
-	console.log('a user connected');
+	socket.emit('update', globalVotes);
 });
-
-let queryObj = {
-	"count":[
-	{
-		$count: "total"
-	}    
-	]	
-};
-let voteParams = ['region', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15'];
-for(let i=0;i<voteParams.length;i++){
-	let param = voteParams[i]
-	queryObj[param] = [
-			{"$group": {
-				"_id": { "$toLower": "$"+param },
-				"count": { "$sum": 1 }
-			}},
-			{"$group": {
-				"_id": null,
-				"counts": {
-					"$push": { "k": "$_id", "v": "$count" }
-				}
-			}},
-			{ "$replaceRoot": {
-				"newRoot": { "$arrayToObject": "$counts" }
-			}}
-	]
-}
-
-setTimeout(async function run(){
-	const votes = await Vote.aggregate([
-		{ "$facet": queryObj }
-	]);
-
-	io.emit('update', votes);
-	setTimeout(run, 1000);
-}, 1000);
-
 
 server.listen(5544, function(){
 	console.log('Server launched');

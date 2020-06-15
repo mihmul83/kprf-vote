@@ -8,7 +8,6 @@
 	<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon-32x32.png"/>
 	<link rel="preload" href="/css/index.css" as="style"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
 	<link rel="stylesheet" type="text/css" href="/css/index.css" />
 	<title>Поправки КПРФ</title>
 	<script>document.documentElement.classList.remove("no-js");</script>
@@ -27,7 +26,7 @@
 			<div class="card-body">
 				<div class="card-header-text">Выберите Ваш регион</div>
 			</div>
-			<div>
+			<div class="card-body">
 				<canvas id="chart-area"></canvas>
 			</div>
 		</div>
@@ -35,123 +34,174 @@
 			<div class="card-body">				
 				<div>
 					1. Внести в Основной закон положение о государствообразующей роли русского народа в многонациональной семье равноправных народов Российской Федерации.
-				</div>
-				<div>
-
 				</div>				
+			</div>				
+			<div class="card-body">
+				<span id="q1result">0</span> ответов
+			</div>
+			<div class="card-body">
+				<canvas id="q1"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>2. Зафиксировать принадлежность природных недр России её народу, гарантировать всем гражданам страны достойную долю дохода от добычи полезных ископаемых.</div>
-				<div>
-
-				</div>					
+				<div>2. Зафиксировать принадлежность природных недр России её народу, гарантировать всем гражданам страны достойную долю дохода от добычи полезных ископаемых.</div>					
+			</div>
+			<div class="card-body">
+				<span id="q2result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q2"></canvas>
+			</div>			
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>3. Закрепить в качестве важнейшей гарантии возраст выхода на пенсию: 60 лет – для мужчин, 55 лет – для женщин.</div>				
+			</div>				
+			<div class="card-body">
+				<span id="q3result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q3"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>3. Закрепить в качестве важнейшей гарантии возраст выхода на пенсию: 60 лет – для мужчин, 55 лет – для женщин.</div>
-				<div>
-
-				</div>					
-			</div>
-		</div>
-		<div class="card">
-			<div class="card-body">				
-				<div>4. Сделать обязательной нормой индексацию пенсий, социальных выплат и стипендий на величину индекса роста потребительских цен за предыдущий год.</div>
-				<div>
-
-				</div>						
-			</div>
+				<div>4. Сделать обязательной нормой индексацию пенсий, социальных выплат и стипендий на величину индекса роста потребительских цен за предыдущий год.</div>					
+			</div>				
+			<div class="card-body">
+				<span id="q4result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q4"></canvas>
+			</div>	
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>5. Установить, что минимальный размер оплаты труда и пенсионных выплат не может быть ниже прожиточного минимума, который должен гарантировать удовлетворение базовых потребностей человека в жилье, питании, одежде, медицинской помощи, доступе к образованию и ценностям культуры, проезде на общественном транспорте.</div>
-				<div>
 
-				</div>						
 			</div>
+			<div class="card-body">
+				<span id="q5result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q5"></canvas>
+			</div>	
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>6. Зафиксировать, что платежи за жилищно-коммунальные услуги не могут превышать 10% от совокупного дохода семьи.</div>
-				<div>
 
-				</div>						
+			</div>
+			<div class="card-body">
+				<span id="q6result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q6"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>7. Расширить полномочия парламента по контролю над работой чиновников, закрепив в Конституции понятия «парламентский запрос», «парламентский контроль», «парламентское расследование».
 				</div>
-				<div>
 
-				</div>					
+			</div>
+			<div class="card-body">
+				<span id="q7result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q7"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>8. Наделить Государственную Думу ФС РФ правом решать вопрос о доверии или недоверии правительству России, его отдельным членам, руководителям федеральных органов исполнительной власти.</div>
-				<div>
 
-				</div>					
+			</div>
+			<div class="card-body">
+				<span id="q8result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q8"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>9. Закрепить выборность членов Совета Федерации ФС РФ, губернаторов, мэров городов населением прямым тайным голосованием без каких-либо «фильтров».</div>
-				<div>
 
-				</div>					
+			</div>
+			<div class="card-body">
+				<span id="q9result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q9"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>10. Гарантировать реальную независимость судебной власти, закрепить выборность мировых, районных и городских судей.</div>
-				<div>
-
-				</div>					
+				<div>10. Гарантировать реальную независимость судебной власти, закрепить выборность мировых, районных и городских судей.</div>				
+			</div>
+			<div class="card-body">
+				<span id="q10result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q10"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>11. Ввести норму, согласно которой фальсификация итогов голосования считается посягательством на основы конституционного строя и строго карается в соответствии с нормами уголовного права.</div>
-				<div>
-
-				</div>					
+				<div>11. Ввести норму, согласно которой фальсификация итогов голосования считается посягательством на основы конституционного строя и строго карается в соответствии с нормами уголовного права.</div>									
+			</div>
+			<div class="card-body">
+				<span id="q11result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q11"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>12. Определить, что важнейшей функцией Банка России должно являться обеспечение экономического роста в стране и повышение благосостояния граждан.</div>
-				<div>
-
-				</div>					
+				<div>12. Определить, что важнейшей функцией Банка России должно являться обеспечение экономического роста в стране и повышение благосостояния граждан.</div>									
+			</div>
+			<div class="card-body">
+				<span id="q12result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q12"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
 				<div>13. Закрепить за органами местного самоуправления право на такую долю налоговых доходов, которая гарантирует им возможность исполнения своих полномочий.</div>
-				<div>
 
-				</div>					
+			</div>
+			<div class="card-body">
+				<span id="q13result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q13"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>14. Обеспечить глубокое, системное, целостное реформирование Конституции в интересах народного большинства. В кратчайшие сроки принять закон о Конституционном собрании и приступить к его исполнению.</div>
-				<div>
-
-				</div>					
+				<div>14. Обеспечить глубокое, системное, целостное реформирование Конституции в интересах народного большинства. В кратчайшие сроки принять закон о Конституционном собрании и приступить к его исполнению.</div>				
+			</div>
+			<div class="card-body">
+				<span id="q14result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q14"></canvas>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-body">				
-				<div>15. Принять новый, отражающий принципы народовластия закон о референдуме в Российской Федерации. Предложения по реформе Основного закона, выработанные Конституционным собранием, утвердить на общенародном референдуме</div>
-				<div>
-
-				</div>					
+				<div>15. Принять новый, отражающий принципы народовластия закон о референдуме в Российской Федерации. Предложения по реформе Основного закона, выработанные Конституционным собранием, утвердить на общенародном референдуме</div>									
+			</div>
+			<div class="card-body">
+				<span id="q15result">0</span> ответов
+			</div>				
+			<div class="card-body">
+				<canvas id="q15"></canvas>
 			</div>
 		</div>						
 	</div>
@@ -333,9 +383,6 @@
 					tooltips: {
 						callbacks: {
 							label: function(tooltipItem, data) {
-								console.log(tooltipItem)
-								console.log(data)
-								//.reduce((a, b) => a + b, 0)
 								var label = data.labels[tooltipItem.index];
 								label+= ' '+ data.datasets[0].data[tooltipItem.index];
 								label+= ' (' + 100*data.datasets[0].data[tooltipItem.index]/data.datasets[0].data.reduce((a, b) => a + b, 0).toFixed(2)+'% )'
@@ -347,7 +394,35 @@
 			};
 			var ctx = document.getElementById('chart-area').getContext('2d');
 			window.myPie = new Chart(ctx, config);
-
+			
+			var voteParams = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15'];
+			for(var i=0;i<voteParams.length;i++){
+				window['conf'+voteParams[i]] = {
+					type: 'pie',
+					data: {
+						datasets: [{
+							data: [0,0],
+							backgroundColor: ["red","blue"],
+						}],
+						labels: ["Против","За"]
+					},
+					options: {
+						responsive: true,
+						tooltips: {
+							callbacks: {
+								label: function(tooltipItem, data) {
+									var label = data.labels[tooltipItem.index];
+									label+= ' '+ data.datasets[0].data[tooltipItem.index];
+									label+= ' (' + 100*data.datasets[0].data[tooltipItem.index]/data.datasets[0].data.reduce((a, b) => a + b, 0).toFixed(2)+'% )'
+									return label;
+								}
+							}
+						}
+					}
+				};				
+				var ctx = document.getElementById(voteParams[i]).getContext('2d');
+				window['Pie'+voteParams[i]] = new Chart(ctx, window['conf'+voteParams[i]] );				
+			}
 			
 			socket.on('update', function(msg){
 				document.getElementById('count').innerText = msg[0].count[0].total;
@@ -369,7 +444,29 @@
 				}
 				if(redrawRegions){
 					window.myPie.update();
-				}				
+				}
+				for(var i=0;i<voteParams.length;i++){
+					var reg = msg[0][ voteParams[i] ][0];
+					var data = [];
+					var labels = [];
+					var redraw = false;
+					for(key in reg) {
+						labels.push(key)
+						data.push(reg[key])
+					}					
+					if(!areEqual(window['conf' + voteParams[i]].data.datasets[0].data, data)){
+						window['conf'+voteParams[i]].data.datasets[0].data = data;
+						document.getElementById(voteParams[i] + 'result').innerText = data.reduce((a, b) => a + b, 0);
+						redrawRegions = true
+					}
+					if(!areEqual(window['conf'+voteParams[i]].data.labels, labels)){
+						window['conf'+voteParams[i]].data.labels = labels;
+						redrawRegions = true
+					}
+					if(redrawRegions){
+						window['Pie'+voteParams[i]].update();
+					}														
+				}			
 			});
 		};
 	</script>
