@@ -19,14 +19,359 @@
 			<div class="card-header">
 				<div class="card-header-text">КПРФ предлагает реальные поправки в Основной Закон РФ</div>
 			</div>
-		</div>		
+			<div class="card-body">
+				<div class="card-body"><span id="count">0</span> ответов</div>
+			</div>			
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="card-header-text">Выберите Ваш регион</div>
+			</div>
+			<div>
+				<canvas id="chart-area"></canvas>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>
+					1. Внести в Основной закон положение о государствообразующей роли русского народа в многонациональной семье равноправных народов Российской Федерации.
+				</div>
+				<div>
+
+				</div>				
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>2. Зафиксировать принадлежность природных недр России её народу, гарантировать всем гражданам страны достойную долю дохода от добычи полезных ископаемых.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>3. Закрепить в качестве важнейшей гарантии возраст выхода на пенсию: 60 лет – для мужчин, 55 лет – для женщин.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>4. Сделать обязательной нормой индексацию пенсий, социальных выплат и стипендий на величину индекса роста потребительских цен за предыдущий год.</div>
+				<div>
+
+				</div>						
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>5. Установить, что минимальный размер оплаты труда и пенсионных выплат не может быть ниже прожиточного минимума, который должен гарантировать удовлетворение базовых потребностей человека в жилье, питании, одежде, медицинской помощи, доступе к образованию и ценностям культуры, проезде на общественном транспорте.</div>
+				<div>
+
+				</div>						
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>6. Зафиксировать, что платежи за жилищно-коммунальные услуги не могут превышать 10% от совокупного дохода семьи.</div>
+				<div>
+
+				</div>						
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>7. Расширить полномочия парламента по контролю над работой чиновников, закрепив в Конституции понятия «парламентский запрос», «парламентский контроль», «парламентское расследование».
+				</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>8. Наделить Государственную Думу ФС РФ правом решать вопрос о доверии или недоверии правительству России, его отдельным членам, руководителям федеральных органов исполнительной власти.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>9. Закрепить выборность членов Совета Федерации ФС РФ, губернаторов, мэров городов населением прямым тайным голосованием без каких-либо «фильтров».</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>10. Гарантировать реальную независимость судебной власти, закрепить выборность мировых, районных и городских судей.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>11. Ввести норму, согласно которой фальсификация итогов голосования считается посягательством на основы конституционного строя и строго карается в соответствии с нормами уголовного права.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>12. Определить, что важнейшей функцией Банка России должно являться обеспечение экономического роста в стране и повышение благосостояния граждан.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>13. Закрепить за органами местного самоуправления право на такую долю налоговых доходов, которая гарантирует им возможность исполнения своих полномочий.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>14. Обеспечить глубокое, системное, целостное реформирование Конституции в интересах народного большинства. В кратчайшие сроки принять закон о Конституционном собрании и приступить к его исполнению.</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">				
+				<div>15. Принять новый, отражающий принципы народовластия закон о референдуме в Российской Федерации. Предложения по реформе Основного закона, выработанные Конституционным собранием, утвердить на общенародном референдуме</div>
+				<div>
+
+				</div>					
+			</div>
+		</div>						
 	</div>
 	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/Chart.min.js"></script>
 	<script>
-		var socket = io();
-		socket.on('update', function(msg){
+		window.onload = function() {
+			var socket = io();
+			function areEqual(a, b){
+				var x = false;
+				if(a.length!=b.length) return x;
+				for(var i=0; i <a.length;i++){
+					if (a[i] == b[i]){x = true;}
+					else {x = false};
+				}
+				return x;
+			}
+			var config = {
+				type: 'pie',
+				data: {
+					datasets: [{
+						data: [],
+						backgroundColor: [
+						"aliceblue",
+						"antiquewhite",
+						"aqua",
+						"aquamarine",
+						"azure",
+						"beige",
+						"bisque",
+						"blac",
+						"blanchedalmond",
+						"blue",
+						"blueviolet",
+						"brown",
+						"burlywood",
+						"cadetblue",
+						"chartreuse",
+						"chocolate",
+						"coral",
+						"cornflowerblue",
+						"cornsilk",
+						"crimson",
+						"cyan",
+						"darkblue",
+						"darkcyan",
+						"darkgoldenrod",
+						"darkgray",
+						"darkgreen",
+						"darkgrey",
+						"darkkhaki",
+						"darkmagenta",
+						"darkolivegreen",
+						"darkorange",
+						"darkorchid",
+						"darkred",
+						"darksalmon",
+						"darkseagreen",
+						"darkslateblue",
+						"darkslategray",
+						"darkslategrey",
+						"darkturquoise",
+						"darkviolet",
+						"deeppink",
+						"deepskyblue",
+						"dimgray",
+						"dimgrey",
+						"dodgerblue",
+						"firebrick",
+						"floralwhite",
+						"forestgreen",
+						"fuchsia",
+						"gainsboro",
+						"ghostwhite",
+						"gold",
+						"goldenrod",
+						"gray",
+						"green",
+						"greenyellow",
+						"grey",
+						"honeydew",
+						"hotpink",
+						"indianred",
+						"indigo",
+						"ivory",
+						"khaki",
+						"lavender",
+						"lavenderblush",
+						"lawngreen",
+						"lemonchiffon",
+						"lightblue",
+						"lightcoral",
+						"lightcyan",
+						"lightgoldenrodyellow",
+						"lightgray",
+						"lightgreen",
+						"lightgrey",
+						"lightpink",
+						"lightsalmon",
+						"lightseagreen",
+						"lightskyblue",
+						"lightslategray",
+						"lightslategrey",
+						"lightsteelblue",
+						"lightyellow",
+						"lime",
+						"limegreen",
+						"linen",
+						"magenta",
+						"maroon",
+						"mediumaquamarine",
+						"mediumblue",
+						"mediumorchid",
+						"mediumpurple",
+						"mediumseagreen",
+						"mediumslateblue",
+						"mediumspringgreen",
+						"mediumturquoise",
+						"mediumvioletred",
+						"midnightblue",
+						"mintcream",
+						"mistyrose",
+						"moccasin",
+						"navajowhite",
+						"navy",
+						"oldlace",
+						"olive",
+						"olivedrab",
+						"orange",
+						"orangered",
+						"orchid",
+						"palegoldenrod",
+						"palegreen",
+						"paleturquoise",
+						"palevioletred",
+						"papayawhip",
+						"peachpuff",
+						"peru",
+						"pink",
+						"plum",
+						"powderblue",
+						"purple",
+						"rebeccapurple",
+						"red",
+						"rosybrown",
+						"royalblue",
+						"saddlebrown",
+						"salmon",
+						"sandybrown",
+						"seagreen",
+						"seashell",
+						"sienna",
+						"silver",
+						"skyblue",
+						"slateblue",
+						"slategray",
+						"slategrey",
+						"snow",
+						"springgreen",
+						"steelblue",
+						"tan",
+						"teal",
+						"thistle",
+						"tomato",
+						"turquoise",
+						"violet",
+						"wheat",
+						"white",
+						"whitesmoke",
+						"yellow",
+						"yellowgreen"
+						],
+						label: 'Регионы'
+					}],
+					labels: []
+				},
+				options: {
+					responsive: true,
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								console.log(tooltipItem)
+								console.log(data)
+								//.reduce((a, b) => a + b, 0)
+								var label = data.labels[tooltipItem.index];
+								label+= ' '+ data.datasets[0].data[tooltipItem.index];
+								label+= ' (' + 100*data.datasets[0].data[tooltipItem.index]/data.datasets[0].data.reduce((a, b) => a + b, 0).toFixed(2)+'% )'
+								return label;
+							}
+						}
+					}
+				}
+			};
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+
 			
-		});
+			socket.on('update', function(msg){
+				document.getElementById('count').innerText = msg[0].count[0].total;
+				var reg = msg[0].region[0];
+				var data = [];
+				var labels = [];
+				var redrawRegions = false;
+				for(key in reg) {
+					labels.push(key)
+					data.push(reg[key])
+				}
+				if(!areEqual(config.data.datasets[0].data, data)){
+					config.data.datasets[0].data = data;
+					redrawRegions = true
+				}
+				if(!areEqual(config.data.labels, labels)){
+					config.data.labels = labels;
+					redrawRegions = true
+				}
+				if(redrawRegions){
+					window.myPie.update();
+				}				
+			});
+		};
 	</script>
 </body>
 </html>
